@@ -2,17 +2,17 @@ steps:
   # Step 1: Install Node.js dependencies
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
-    dir: 'function'  # Change this to the actual path of your Node.js project
+    dir: 'function'  
 
   # Step 2: Build and push Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/your-project-id/your-image-name:latest', '.']
-    dir: 'function'  # Change this to the actual path of your Node.js project
-
+    args: ['build', '-t', 'gcr.io/qwiklabs-gcp-03-daa934ef3c80/productsimage:latest', '.']
+    dir: 'function'
+    
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/your-project-id/your-image-name:latest']
+    args: ['push', 'gcr.io/qwiklabs-gcp-03-daa934ef3c80/productsimage:latest']
 
   # Step 3: Deploy Cloud Function
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'your-cloud-function-name', '--runtime', 'nodejs16', '--trigger-http']
-    dir: 'function'  # Change this to the actual path of your Node.js project
+    args: ['functions', 'deploy', 'function-1	', '--runtime', 'nodejs16', '--trigger-http']
+    dir: 'function'
