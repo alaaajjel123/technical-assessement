@@ -4,13 +4,13 @@ steps:
     args: ['install']
     dir: 'function'  
 
-  ## Step 2: Build and push Docker image
-  #- name: 'gcr.io/cloud-builders/docker'
-  #  args: ['build', '-t', 'gcr.io/qwiklabs-gcp-03-daa934ef3c80/productsimage:latest', '.']
-  #  dir: 'function'
+  # Step 2: Build and push Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/qwiklabs-gcp-03-daa934ef3c80/productsimage:latest', '.']
+    dir: 'function'
     
-  #- name: 'gcr.io/cloud-builders/docker'
-  #  args: ['push', 'gcr.io/qwiklabs-gcp-03-daa934ef3c80/productsimage:latest']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/qwiklabs-gcp-03-daa934ef3c80/productsimage:latest']
 
   # Step 3: Deploy Cloud Function
   - name: 'gcr.io/cloud-builders/gcloud'
